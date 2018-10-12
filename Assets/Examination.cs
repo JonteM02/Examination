@@ -12,7 +12,9 @@ public class Examination : MonoBehaviour
     void Start()
     {
         transform.position = new Vector3(Random.Range(-10, 10), Random.Range(-11, 11));
+        //Gör så att man randomiserar spawnpointen på mappen
         speed = Random.Range(2, 8);
+        //Gör så att vid början av spelet skeppet spawnar med olika fart.
     }
 
 
@@ -48,6 +50,7 @@ public class Examination : MonoBehaviour
             //Gör så att skeppet åker hälften så snabbt
         }
         if (Input.GetKeyDown(KeyCode.Space))
+            //Gör så att när man trycker spacebar så blir det en random färg beroende på vilket nummer då får nedanför.
         {
             DiceRollColor = Random.Range(1, 5);
 
@@ -71,24 +74,29 @@ public class Examination : MonoBehaviour
         }
         NewMethod();
         Timer = Timer + 1 * Time.deltaTime;
+        //Gör så att timern räknar uppåt med 1 per sekund
 
     }
 
     private void NewMethod()
     {
         if (transform.position.x < -11.5)
+            //Gör så att om skeppet åker utanför x -11.5 så teleporterar den till andra sidan på samma y position
         {
             transform.position = new Vector3(11.5f, (transform.position.y));
         }
         if (transform.position.x > 11.5)
+        //Gör så att om skeppet åker utanför x 11.5 så teleporterar den till andra sidan på samma y position
         {
             transform.position = new Vector3(-11.5f, (transform.position.y));
         }
         if (transform.position.y < -5)
+            //Gör så att om skeppet åker utanför y -5 så teleporterar den till andra sidan på samma x position
         {
             transform.position = new Vector3((transform.position.x), 5);
         }
         if (transform.position.y > 5)
+        //Gör så att om skeppet åker utanför y 5 så teleporterar den till andra sidan på samma x position
         {
             transform.position = new Vector3((transform.position.x), -5);
 
